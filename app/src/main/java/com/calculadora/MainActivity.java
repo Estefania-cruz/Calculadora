@@ -1,5 +1,6 @@
 package com.calculadora;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
             btnSuma, btnResta, btnMulti, btnDivicion, btnIgual, btnBorrar;
 
     TextView txtMostrar;
+
+    String cadena = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +41,16 @@ public class MainActivity extends AppCompatActivity {
         btnIgual = this.findViewById(R.id.btnIgual);
         btnBorrar = this.findViewById(R.id.btnBorrar);
 
-        String cadena = txtMostrar.getText().toString();
+        cadena = txtMostrar.getText().toString();
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String uno = btn1.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += uno;
 
-                txtMostrar.setText(cadena + "" + uno);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -56,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String dos = btn2.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += dos;
 
-                txtMostrar.setText(cadena + "" + dos);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -67,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String tres = btn3.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += tres;
 
-                txtMostrar.setText(cadena + "" + tres);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -78,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String cuatro = btn4.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += cuatro;
 
-                txtMostrar.setText(cadena + "" + cuatro);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -89,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String cinco = btn5.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += cinco;
 
-                txtMostrar.setText(cadena + "" + cinco);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -100,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String seis = btn6.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += seis;
 
-                txtMostrar.setText(cadena + "" + seis);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -111,42 +114,42 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String siete = btn7.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += siete;
 
-                txtMostrar.setText(cadena + "" + siete);
+                txtMostrar.setText(cadena);
             }
         });
 
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cinco = btn8.getText().toString();
+                String ocho = btn8.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += ocho;
 
-                txtMostrar.setText(cadena + "" + cinco);
+                txtMostrar.setText(cadena);
             }
         });
 
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cinco = btn9.getText().toString();
+                String nueve = btn9.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += nueve;
 
-                txtMostrar.setText(cadena + "" + cinco);
+                txtMostrar.setText(cadena);
             }
         });
 
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cinco = btn0.getText().toString();
+                String cero = btn0.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += cero;
 
-                txtMostrar.setText(cadena + "" + cinco);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -155,9 +158,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String suma = btnSuma.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += suma;
 
-                txtMostrar.setText(cadena + "" + suma);
+                txtMostrar.setText(cadena);
             }
         });
 
@@ -166,42 +169,42 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String resta = btnResta.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += resta;
 
-                txtMostrar.setText(cadena + "" + resta);
+                txtMostrar.setText(cadena);
             }
         });
 
         btnDivicion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String resta = btnDivicion.getText().toString();
+                String div = btnDivicion.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += div;
 
-                txtMostrar.setText(cadena + "" + resta);
+                txtMostrar.setText(cadena);
             }
         });
 
         btnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String resta = btnMulti.getText().toString();
+                String multi = btnMulti.getText().toString();
 
-                String cadena = txtMostrar.getText().toString();
+                cadena += multi;
 
-                txtMostrar.setText(cadena + "" + resta);
+                txtMostrar.setText(cadena);
             }
         });
 
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String cadena = txtMostrar.getText().toString();
+                //String cadena = txtMostrar.getText().toString();
 
                 cadena = "";
 
+                txtMostrar.setTextColor(Color.BLACK);
                 txtMostrar.setText(cadena);
             }
         });
@@ -211,8 +214,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String cadena = txtMostrar.getText().toString();
 
-                Float resultado = 0F;
-                //1+1+1
+                String resultado = operaciones();
+
+                if(resultado.equals("error")){
+                    txtMostrar.setTextColor(Color.RED);
+                    txtMostrar.setText(resultado);
+                }else{
+                    txtMostrar.setText(resultado);
+                }
+
+                /*Float resultado = 0F;
 
                 resultado = Float.parseFloat(String.valueOf(cadena.charAt(0)));
                 for (int i=0; i < cadena.length(); i++){
@@ -228,27 +239,108 @@ public class MainActivity extends AppCompatActivity {
                         //System.out.println(Float.parseFloat(String.valueOf(cadena.charAt(i-1))));
                     }else if(c == '-'){
                         resultado -= Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
+                    }else if(c == '*'){
+                        resultado *= Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
+                    }else if(c == '/'){
+                        resultado /= Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
                     }
-                }
+                }*/
 
-                txtMostrar.setText(String.valueOf(resultado));
             }
         });
     }
 
-    public Float operaciones(char sim){
-        switch (sim){
-            case '+':
-
-                break;
-            case '-':
-                break;
-            case '/':
-                break;
-            case '*':
-                break;
+    public String operaciones() {
+        Double resultado = 0.0;
+        if (cadena.split("\\+").length == 2) {
+            String[] numeros = cadena.split("\\+");
+            try {
+                Double res = Double.parseDouble(numeros[0]) + Double.parseDouble(numeros[1]);
+                resultado = res;
+            }catch (Exception e){
+                return "error";
+            }
+        } else if (cadena.split("-").length == 2) {
+            String[] numeros = cadena.split("-");
+            try {
+                Double res = Double.parseDouble(numeros[0]) - Double.parseDouble(numeros[1]);
+                resultado = res;
+            }catch (Exception e){
+                return "error";
+            }
+        } else if (cadena.split("\\*").length == 2) {
+            String[] numeros = cadena.split("\\*");
+            try {
+                Double res = Double.parseDouble(numeros[0]) * Double.parseDouble(numeros[1]);
+                resultado = res;
+            }catch (Exception e) {
+                return "error";
+            }
+        } else if (cadena.split("/").length == 2) {
+            String[] numeros = cadena.split("/");
+            try {
+                Double res = Double.parseDouble(numeros[0]) / Double.parseDouble(numeros[1]);
+                resultado = res;
+            }catch (Exception e){
+                return "error";
+            }
         }
 
-        return 0F;
+        cadena = String.valueOf(resultado);
+        /*String numero = "", total = "error";
+        Double resultado = 0.0;
+        for (int i = 0; i < cadena.length(); i++) {
+            switch (cadena.charAt(i)){
+                case '+':
+                    resultado += Double.parseDouble(numero);
+                    numero = "";
+                    System.out.println("Resultado: " + resultado);
+                    break;
+                case '-':
+                    resultado -= Double.parseDouble(numero);
+                    numero = "";
+                    System.out.println("Resultado: " + resultado);
+                    break;
+                case '*':
+                    resultado *= Double.parseDouble(numero);
+                    numero = "";
+                    System.out.println("Resultado: " + resultado);
+                    break;
+                case '/':
+                    resultado /= Double.parseDouble(numero);
+                    numero = "";
+                    System.out.println("Resultado: " + resultado);
+                    break;
+                default:
+                    numero = numero + cadena.charAt(i);
+                    System.out.println("Numero: " + numero+ "s " + i);
+                    break;
+            }
+
+            if (cadena.charAt(i) == '+') {
+                resultado += Double.parseDouble(numero);
+                numero = "";
+                System.out.println("Resultado: " + resultado);
+            } else if (cadena.charAt(i) == '-') {
+                resultado -= Double.parseDouble(numero);
+                numero = "";
+                System.out.println("Resultado: " + resultado);
+            } else if (cadena.charAt(i) == '*') {
+                resultado *= Double.parseDouble(numero);
+                numero = "";
+                System.out.println("Resultado: " + resultado);
+            } else if (cadena.charAt(i) == '/') {
+                resultado /= Double.parseDouble(numero);
+                numero = "";
+                System.out.println("Resultado: " + resultado);
+            }
+
+            if (cadena.charAt(i) != '+' && cadena.charAt(i) != '-' && cadena.charAt(i) != '*' && cadena.charAt(i) != '/') {
+                numero = numero + cadena.charAt(i);
+                System.out.println("Numero: " + numero+ "s " + i);
+            }
+        }*/
+
+        return String.valueOf(resultado);
     }
 }
