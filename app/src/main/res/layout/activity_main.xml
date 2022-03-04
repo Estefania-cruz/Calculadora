@@ -28,16 +28,15 @@
 
             <TextView
                 android:id="@+id/txtMostrar"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text=""
+                android:text="jjj"
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textSize="70dp" />
             </HorizontalScrollView>
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,32 +46,32 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="88dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnUno"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="1" />
 
                     <Button
                         android:id="@+id/btnDos"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="2" />
 
                     <Button
                         android:id="@+id/btnTres"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="3" />
                 </LinearLayout>
@@ -91,21 +90,21 @@
                     <Button
                         android:id="@+id/btnCuatro"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="4" />
 
                     <Button
                         android:id="@+id/btnCinco"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="5" />
 
                     <Button
                         android:id="@+id/btnSeis"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="6" />
                 </LinearLayout>
@@ -124,21 +123,21 @@
                     <Button
                         android:id="@+id/btnSiete"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="7" />
 
                     <Button
                         android:id="@+id/btnOcho"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="8" />
 
                     <Button
                         android:id="@+id/btnNueve"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="9" />
                 </LinearLayout>
@@ -184,26 +183,26 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnSuma"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="+" />
                     <Button
                         android:id="@+id/btnPunto"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="." />
 
                     <Button
                         android:id="@+id/btnResta"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="-" />
                 </LinearLayout>
@@ -222,14 +221,14 @@
                     <Button
                         android:id="@+id/btnDivicion"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="/" />
 
                     <Button
                         android:id="@+id/btnMulti"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="*" />
                 </LinearLayout>
