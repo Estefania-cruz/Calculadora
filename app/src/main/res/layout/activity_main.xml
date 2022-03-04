@@ -21,11 +21,12 @@
             android:orientation="vertical"
             android:padding="50px">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/txtMostrar"
                 android:layout_width="match_parent"
@@ -34,14 +35,15 @@
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textSize="70dp" />
-            </HorizontalScrollView>
 
+            </HorizontalScrollView>
+            </RelativeLayout>
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="457dp"
             android:orientation="vertical"
             android:padding="20px">
 
@@ -53,7 +55,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <Button
                         android:id="@+id/btnUno"
@@ -193,6 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="+" />
+
                     <Button
                         android:id="@+id/btnPunto"
                         android:layout_width="wrap_content"
