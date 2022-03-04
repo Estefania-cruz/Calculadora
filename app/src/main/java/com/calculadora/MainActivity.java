@@ -226,15 +226,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String resultado = operaciones();
-                txtMostrar.setText(resultado);
-                String [] entero = resultado.split("\\.");
 
-                int decimal = Integer.parseInt(entero[1]);
-
-                if(decimal > 0){
+                if(resultado.equals("error")){
+                    txtMostrar.setTextColor(Color.RED);
                     txtMostrar.setText(resultado);
-                }else {
-                    txtMostrar.setText(entero[0]);
+                }else{
+                    txtMostrar.setText(resultado);
+                    String [] entero = resultado.split("\\.");
+
+                    int decimal = Integer.parseInt(entero[1]);
+
+                    if(decimal > 0){
+                        cadena = resultado;
+                        txtMostrar.setText(resultado);
+                    }else {
+                        cadena = entero[0];
+                        txtMostrar.setText(entero[0]);
+                    }
                 }
             }
         });
@@ -254,36 +262,38 @@ public class MainActivity extends AppCompatActivity {
         //inicializa primer operador.
         operaciones[0] = "+";
         int index_operacion = 1;
-
-        for(int i = 0; i<tam ; i++)
-        {
-            if(cadena.charAt(i) == '+' || cadena.charAt(i) == '-' || cadena.charAt(i) == '*' || cadena.charAt(i) == '/')
-            {
-                numeros[pos] = aux;
-                operaciones[index_operacion] = String.valueOf(cadena.charAt(i));
-                pos++;
-                index_operacion++;
-                aux = "";
-            }else {
-                aux = aux + cadena.charAt(i);
+        try{
+            for(int i = 0; i<tam ; i++){
+                if(cadena.charAt(i) == '+' || cadena.charAt(i) == '-' || cadena.charAt(i) == '*' || cadena.charAt(i) == '/'){
+                    numeros[pos] = aux;
+                    operaciones[index_operacion] = String.valueOf(cadena.charAt(i));
+                    pos++;
+                    index_operacion++;
+                    aux = "";
+                }else {
+                    aux = aux + cadena.charAt(i);
+                }
             }
-        }
-        numeros[pos] = aux;
-        pos++;
 
-        for(int i = 0; i<pos ; i++) {
-            //Determina la operación a realizar.
-            if(operaciones[i].equals("+")) {
-                sum= sum + Double.parseDouble(numeros[i]);
-            }else if (operaciones[i].equals("-")) {
-                sum= sum - Double.parseDouble(numeros[i]);
-            }else if (operaciones[i].equals("*")) {
-                sum= sum * Double.parseDouble(numeros[i]);
-            }else if (operaciones[i].equals("/")) {
-                sum= sum / Double.parseDouble(numeros[i]);
+            numeros[pos] = aux;
+            pos++;
+
+            for(int i = 0; i<pos ; i++) {
+                //Determina la operación a realizar.
+                if(operaciones[i].equals("+")) {
+                    sum= sum + Double.parseDouble(numeros[i]);
+                }else if (operaciones[i].equals("-")) {
+                    sum= sum - Double.parseDouble(numeros[i]);
+                }else if (operaciones[i].equals("*")) {
+                    sum= sum * Double.parseDouble(numeros[i]);
+                }else if (operaciones[i].equals("/")) {
+                    sum= sum / Double.parseDouble(numeros[i]);
+                }
             }
+
+            return String.valueOf(sum);
+        }catch (Exception e) {
+            return "error";
         }
-        cadena = String.valueOf(sum);
-        return String.valueOf(sum);
     }
 }

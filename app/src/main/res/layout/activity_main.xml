@@ -33,6 +33,7 @@
                         android:layout_height="match_parent"
                         android:text=""
                         android:textAlignment="textEnd"
+                        android:layout_gravity="end"
                         android:textColor="@color/black"
                         android:textSize="70dp" />
 
