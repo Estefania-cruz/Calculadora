@@ -252,7 +252,6 @@ public class MainActivity extends AppCompatActivity {
 
     public String operaciones() {
         Double resultado = 0.0;
-        //Comentario de prueba
         if (cadena.split("\\+").length == 2) {
             String[] numeros = cadena.split("\\+");
             try {
