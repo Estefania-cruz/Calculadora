@@ -212,171 +212,63 @@ public class MainActivity extends AppCompatActivity {
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int tam = cadena.length();
-                String A[] = new String[100];
-
-                //Array para almacenar operadores.
-                String operaciones[] = new String[100];
-
-                int pos = 0;
-                int sum = 0;
-                String aux = "";
-
-                //inicializa primer operador.
-                operaciones[0] = "+";
-                int index_operacion = 1;
-
-                for(int i = 0; i<tam ; i++)
-                {
-                    if(cadena.charAt(i) == '+' || cadena.charAt(i) == '-' || cadena.charAt(i) == '*' || cadena.charAt(i) == '/')
-                    {
-                        A[pos] = aux;
-                        operaciones[index_operacion] = String.valueOf(cadena.charAt(i));
-                        pos++;
-                        index_operacion++;
-                        aux = "";
-                    }else {
-                        aux = aux + cadena.charAt(i);
-                    }
+                String resultado = operaciones();
+                String [] entero = resultado.split("/./");
+                if(Integer.parseInt(entero[1]) > 0){
+                    txtMostrar.setText(resultado);
+                }else {
+                    txtMostrar.setText(Integer.parseInt(resultado));
                 }
-                A[pos] = aux;
-                pos++;
-
-                for(int i = 0; i<pos ; i++)
-                {
-                    //Determina la operación a realizar.
-                    if(operaciones[i].equals("+")){
-                        sum=sum+Integer.parseInt(A[i]);
-                    }else if (operaciones[i].equals("-")){
-                        sum=sum-Integer.parseInt(A[i]);
-                    }else if (operaciones[i].equals("*")){
-                        sum=sum*Integer.parseInt(A[i]);
-                    }else if (operaciones[i].equals("/")){
-                        sum=sum/Integer.parseInt(A[i]);
-                    }
-
-                }
-                System.out.println("=  "+sum);
-                txtMostrar.setText(String.valueOf(sum));
-
-                /*Float resultado = 0F;
-
-                resultado = Float.parseFloat(String.valueOf(cadena.charAt(0)));
-                for (int i=0; i < cadena.length(); i++){
-
-
-                    char c = cadena.charAt(i);
-
-                    //operaciones(c);
-
-                    //resultado = Float.parseFloat(String.valueOf(cadena.charAt(i)));
-                    if(c == '+'){
-                        resultado += Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
-                        //System.out.println(Float.parseFloat(String.valueOf(cadena.charAt(i-1))));
-                    }else if(c == '-'){
-                        resultado -= Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
-                    }else if(c == '*'){
-                        resultado *= Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
-                    }else if(c == '/'){
-                        resultado /= Float.parseFloat(String.valueOf(cadena.charAt(i+1)));
-                    }
-                }*/
-
             }
         });
     }
 
-    public String operaciones() {
-        Double resultado = 0.0;
-        if (cadena.split("\\+").length == 2) {
-            String[] numeros = cadena.split("\\+");
-            try {
-                Double res = Double.parseDouble(numeros[0]) + Double.parseDouble(numeros[1]);
-                resultado = res;
-            }catch (Exception e){
-                return "error";
+    private String operaciones() {
+        int tam = cadena.length();
+        String numeros[] = new String[100];
+
+        //Array para almacenar operadores.
+        String operaciones[] = new String[100];
+
+        int pos = 0;
+        Double sum = 0.0;
+        String aux = "";
+
+        //inicializa primer operador.
+        operaciones[0] = "+";
+        int index_operacion = 1;
+
+        for(int i = 0; i<tam ; i++)
+        {
+            if(cadena.charAt(i) == '+' || cadena.charAt(i) == '-' || cadena.charAt(i) == '*' || cadena.charAt(i) == '/')
+            {
+                numeros[pos] = aux;
+                operaciones[index_operacion] = String.valueOf(cadena.charAt(i));
+                pos++;
+                index_operacion++;
+                aux = "";
+            }else {
+                aux = aux + cadena.charAt(i);
             }
-        } else if (cadena.split("-").length == 2) {
-            String[] numeros = cadena.split("-");
-            try {
-                Double res = Double.parseDouble(numeros[0]) - Double.parseDouble(numeros[1]);
-                resultado = res;
-            }catch (Exception e){
-                return "error";
-            }
-        } else if (cadena.split("\\*").length == 2) {
-            String[] numeros = cadena.split("\\*");
-            try {
-                Double res = Double.parseDouble(numeros[0]) * Double.parseDouble(numeros[1]);
-                resultado = res;
-            }catch (Exception e) {
-                return "error";
-            }
-        } else if (cadena.split("/").length == 2) {
-            String[] numeros = cadena.split("/");
-            try {
-                Double res = Double.parseDouble(numeros[0]) / Double.parseDouble(numeros[1]);
-                resultado = res;
-            }catch (Exception e){
-                return "error";
+        }
+        numeros[pos] = aux;
+        pos++;
+
+        for(int i = 0; i<pos ; i++) {
+            //Determina la operación a realizar.
+            if(operaciones[i].equals("+")) {
+                sum= sum + Double.parseDouble(numeros[i]);
+            }else if (operaciones[i].equals("-")) {
+                sum= sum - Double.parseDouble(numeros[i]);
+            }else if (operaciones[i].equals("*")) {
+                sum= sum * Double.parseDouble(numeros[i]);
+            }else if (operaciones[i].equals("/")) {
+                sum= sum / Double.parseDouble(numeros[i]);
             }
         }
 
-        cadena = String.valueOf(resultado);
-        /*String numero = "", total = "error";
-        Double resultado = 0.0;
-        for (int i = 0; i < cadena.length(); i++) {
-            switch (cadena.charAt(i)){
-                case '+':
-                    resultado += Double.parseDouble(numero);
-                    numero = "";
-                    System.out.println("Resultado: " + resultado);
-                    break;
-                case '-':
-                    resultado -= Double.parseDouble(numero);
-                    numero = "";
-                    System.out.println("Resultado: " + resultado);
-                    break;
-                case '*':
-                    resultado *= Double.parseDouble(numero);
-                    numero = "";
-                    System.out.println("Resultado: " + resultado);
-                    break;
-                case '/':
-                    resultado /= Double.parseDouble(numero);
-                    numero = "";
-                    System.out.println("Resultado: " + resultado);
-                    break;
-                default:
-                    numero = numero + cadena.charAt(i);
-                    System.out.println("Numero: " + numero+ "s " + i);
-                    break;
-            }
+        System.out.println("=  "+sum);
 
-            if (cadena.charAt(i) == '+') {
-                resultado += Double.parseDouble(numero);
-                numero = "";
-                System.out.println("Resultado: " + resultado);
-            } else if (cadena.charAt(i) == '-') {
-                resultado -= Double.parseDouble(numero);
-                numero = "";
-                System.out.println("Resultado: " + resultado);
-            } else if (cadena.charAt(i) == '*') {
-                resultado *= Double.parseDouble(numero);
-                numero = "";
-                System.out.println("Resultado: " + resultado);
-            } else if (cadena.charAt(i) == '/') {
-                resultado /= Double.parseDouble(numero);
-                numero = "";
-                System.out.println("Resultado: " + resultado);
-            }
-
-            if (cadena.charAt(i) != '+' && cadena.charAt(i) != '-' && cadena.charAt(i) != '*' && cadena.charAt(i) != '/') {
-                numero = numero + cadena.charAt(i);
-                System.out.println("Numero: " + numero+ "s " + i);
-            }
-        }*/
-
-        return String.valueOf(resultado);
+        return String.valueOf(sum);
     }
 }
