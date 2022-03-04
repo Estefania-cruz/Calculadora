@@ -21,9 +21,11 @@
             android:orientation="vertical"
             android:padding="50px">
 
-            <ScrollView
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
+
             <TextView
                 android:id="@+id/txtMostrar"
                 android:layout_width="match_parent"
@@ -32,7 +34,7 @@
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textSize="70dp" />
-            </ScrollView>
+            </HorizontalScrollView>
 
         </LinearLayout>
 
