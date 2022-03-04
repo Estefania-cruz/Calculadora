@@ -212,16 +212,52 @@ public class MainActivity extends AppCompatActivity {
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cadena = txtMostrar.getText().toString();
+                int tam = cadena.length();
+                String A[] = new String[100];
 
-                String resultado = operaciones();
+                //Array para almacenar operadores.
+                String operaciones[] = new String[100];
 
-                if(resultado.equals("error")){
-                    txtMostrar.setTextColor(Color.RED);
-                    txtMostrar.setText(resultado);
-                }else{
-                    txtMostrar.setText(resultado);
+                int pos = 0;
+                int sum = 0;
+                String aux = "";
+
+                //inicializa primer operador.
+                operaciones[0] = "+";
+                int index_operacion = 1;
+
+                for(int i = 0; i<tam ; i++)
+                {
+                    if(cadena.charAt(i) == '+' || cadena.charAt(i) == '-' || cadena.charAt(i) == '*' || cadena.charAt(i) == '/')
+                    {
+                        A[pos] = aux;
+                        operaciones[index_operacion] = String.valueOf(cadena.charAt(i));
+                        pos++;
+                        index_operacion++;
+                        aux = "";
+                    }else {
+                        aux = aux + cadena.charAt(i);
+                    }
                 }
+                A[pos] = aux;
+                pos++;
+
+                for(int i = 0; i<pos ; i++)
+                {
+                    //Determina la operación a realizar.
+                    if(operaciones[i].equals("+")){
+                        sum=sum+Integer.parseInt(A[i]);
+                    }else if (operaciones[i].equals("-")){
+                        sum=sum-Integer.parseInt(A[i]);
+                    }else if (operaciones[i].equals("*")){
+                        sum=sum*Integer.parseInt(A[i]);
+                    }else if (operaciones[i].equals("/")){
+                        sum=sum/Integer.parseInt(A[i]);
+                    }
+
+                }
+                System.out.println("=  "+sum);
+                txtMostrar.setText(String.valueOf(sum));
 
                 /*Float resultado = 0F;
 
