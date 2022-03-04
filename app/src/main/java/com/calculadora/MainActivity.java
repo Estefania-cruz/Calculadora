@@ -10,7 +10,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0,
-            btnSuma, btnResta, btnMulti, btnDivicion, btnIgual, btnBorrar;
+            btnSuma, btnResta, btnMulti, btnDivicion, btnIgual, btnBorrar,
+            btnPunto;
 
     TextView txtMostrar;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btn8 = this.findViewById(R.id.btnOcho);
         btn9 = this.findViewById(R.id.btnNueve);
         btn0 = this.findViewById(R.id.btnCero);
+        btnPunto = this.findViewById(R.id.btnPunto);
         btnSuma = this.findViewById(R.id.btnSuma);
         btnResta = this.findViewById(R.id.btnResta);
         btnDivicion = this.findViewById(R.id.btnDivicion);
@@ -153,6 +155,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnPunto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String punto = btnPunto.getText().toString();
+
+                cadena += punto;
+
+                txtMostrar.setText(cadena);
+            }
+        });
+
         btnSuma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -213,11 +226,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String resultado = operaciones();
-                String [] entero = resultado.split("/./");
-                if(Integer.parseInt(entero[1]) > 0){
+                txtMostrar.setText(resultado);
+                String [] entero = resultado.split("\\.");
+
+                int decimal = Integer.parseInt(entero[1]);
+
+                if(decimal > 0){
                     txtMostrar.setText(resultado);
                 }else {
-                    txtMostrar.setText(Integer.parseInt(resultado));
+                    txtMostrar.setText(entero[0]);
                 }
             }
         });
@@ -266,9 +283,7 @@ public class MainActivity extends AppCompatActivity {
                 sum= sum / Double.parseDouble(numeros[i]);
             }
         }
-
-        System.out.println("=  "+sum);
-
+        cadena = String.valueOf(sum);
         return String.valueOf(sum);
     }
 }
